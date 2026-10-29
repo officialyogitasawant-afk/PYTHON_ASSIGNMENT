@@ -81,4 +81,9 @@ for codon in codons:
         amino_acid = codon_table[codon]
         amino_acids.append(amino_acid)
 
+if codon == "ATG":
+    start_codons.append(codon)
+
+elif codon == "TAA" or codon == "TAG" or codon == "TGA":
+    stop_codons.append(codon)
 
