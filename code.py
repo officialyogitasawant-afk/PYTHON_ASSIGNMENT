@@ -37,3 +37,7 @@ codon_table = {
     "GGA": "Glycine", "GGG": "Glycine"
 }
 
+print("\n===== STANDARD CODON TABLE =====")
+
+for codon, amino_acid in codon_table.items():
+    print(codon, ":", amino_acid)
