@@ -51,3 +51,14 @@ if sequence_type == "DNA" or sequence_type == "RNA":
     sequence = input("Enter the nucleotide sequence: ")
     sequence = sequence.strip().upper()
 
+if sequence_type == "RNA":
+        sequence = sequence.replace("U", "T")
+
+if sequence == "":
+        print("Error: Sequence cannot be empty.")
+
+elif not all(base in "ATGC" for base in sequence):
+        print("Error: Enter only valid DNA/RNA nucleotides.")
+
+else:
+
