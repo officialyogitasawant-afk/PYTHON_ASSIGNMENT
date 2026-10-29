@@ -87,3 +87,18 @@ if codon == "ATG":
 elif codon == "TAA" or codon == "TAG" or codon == "TGA":
     stop_codons.append(codon)
 
+print("\n===== TRANSLATION RESULTS =====")
+print("Sequence:", sequence)
+print("Codons:", " - ".join(codons))
+print("Amino acids:", " - ".join(amino_acids))
+
+if len(start_codons) > 0:
+    print("Start codon(s):", ", ".join(start_codons))
+else:
+    print("Start codon(s): None found")
+
+if len(stop_codons) > 0:
+    print("Stop codon(s):", ", ".join(stop_codons))
+else:
+    print("Stop codon(s): None found")
+
