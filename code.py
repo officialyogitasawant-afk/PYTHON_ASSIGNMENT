@@ -63,5 +63,9 @@ elif not all(base in "ATGC" for base in sequence):
 else:
       pass
 
+codons = []
+for i in range(0, len(sequence), 3):
+        codon = sequence[i:i + 3]
+        codons.append(codon)
 
 
