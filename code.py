@@ -108,9 +108,6 @@ if len(sequence) % 3 != 0:
 else:
     print("All codons contain three nucleotides.")
 
-# Compare our codon table with tables used in online repositories.
-# This script reads the codon_table dictionary from code_generator.py and compares
-# it with the NCBI standard genetic code (the string many GitHub repositories use).
 
 import ast
 
