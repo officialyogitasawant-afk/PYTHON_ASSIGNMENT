@@ -45,3 +45,9 @@ for codon, amino_acid in codon_table.items():
 sequence_type = input(
     "\nEnter sequence type (DNA or RNA): "
 ).strip().upper()
+
+if sequence_type == "DNA" or sequence_type == "RNA":
+
+    sequence = input("Enter the nucleotide sequence: ")
+    sequence = sequence.strip().upper()
+
