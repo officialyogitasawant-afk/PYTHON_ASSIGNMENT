@@ -15,9 +15,8 @@ codon_table = {
     "CAT": "Histidine", "CAC": "Histidine",
     "CAA": "Glutamine", "CAG": "Glutamine",
     "CGT": "Arginine", "CGC": "Arginine",
-    "CGA": "Arginine", "CGG": "Arginine"}
-
-codon_table = {
+    "CGA": "Arginine", "CGG": "Arginine",
+    
     "ATT": "Isoleucine", "ATC": "Isoleucine",
     "ATA": "Isoleucine", "ATG": "Methionine",
     "ACT": "Threonine", "ACC": "Threonine",
@@ -109,5 +108,50 @@ if len(sequence) % 3 != 0:
 else:
     print("All codons contain three nucleotides.")
 
+# Compare our codon table with tables used in online repositories.
+# This script reads the codon_table dictionary from code_generator.py and compares
+# it with the NCBI standard genetic code (the string many GitHub repositories use).
 
-    
+import ast
+
+# Step 1: Load our dictionary from code_generator.py without running the program
+with open("code.py") as file:
+    tree = ast.parse(file.read())
+
+our_table = {}
+for node in tree.body:
+    if isinstance(node, ast.Assign) and node.targets[0].id == "codon_table":
+        our_table = ast.literal_eval(node.value)
+
+# Step 2: Build the NCBI reference table (base order T, C, A, G)
+ncbi_string = "FFLLSSSSYY**CC*WLLLLPPPPHHQQRRRRIIIMTTTTNNKKSSRRVVVVAAAADDEEGGGG"
+names = {
+    "F": "Phenylalanine", "L": "Leucine", "S": "Serine", "Y": "Tyrosine",
+    "C": "Cysteine", "W": "Tryptophan", "P": "Proline", "H": "Histidine",
+    "Q": "Glutamine", "R": "Arginine", "I": "Isoleucine", "M": "Methionine",
+    "T": "Threonine", "N": "Asparagine", "K": "Lysine", "V": "Valine",
+    "A": "Alanine", "D": "Aspartic acid", "E": "Glutamic acid",
+    "G": "Glycine", "*": "Stop",
+}
+
+reference = {}
+index = 0
+for a in "TCAG":
+    for b in "TCAG":
+        for c in "TCAG":
+            reference[a + b + c] = names[ncbi_string[index]]
+            index += 1
+
+# Step 3: Compare
+print("Codons in our table:", len(our_table))
+print("Codons in NCBI table:", len(reference))
+
+differences = 0
+for codon in sorted(reference):
+    if our_table.get(codon) != reference[codon]:
+        differences += 1
+        print("Difference at", codon, "- ours:", our_table.get(codon), "| NCBI:", reference[codon])
+
+if differences == 0:
+    print("Result: all 64 codons match the NCBI standard genetic code.")
+
