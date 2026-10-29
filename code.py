@@ -109,6 +109,10 @@ else:
     print("All codons contain three nucleotides.")
 
 
+
+
+# comparison with NCBI standard genetic code
+
 import ast
 
 # Step 1: Load our dictionary from code_generator.py without running the program
