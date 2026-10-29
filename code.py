@@ -68,4 +68,17 @@ for i in range(0, len(sequence), 3):
         codon = sequence[i:i + 3]
         codons.append(codon)
 
+amino_acids = []
+start_codons = []
+stop_codons = []
+
+for codon in codons:
+
+    if len(codon) < 3:
+        amino_acids.append("Incomplete codon")
+
+    else:
+        amino_acid = codon_table[codon]
+        amino_acids.append(amino_acid)
+
 
