@@ -61,4 +61,7 @@ elif not all(base in "ATGC" for base in sequence):
         print("Error: Enter only valid DNA/RNA nucleotides.")
 
 else:
+      pass
+
+
 
