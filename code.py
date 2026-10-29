@@ -102,3 +102,12 @@ if len(stop_codons) > 0:
 else:
     print("Stop codon(s): None found")
 
+# Step 10: Check for incomplete codon
+if len(sequence) % 3 != 0:
+    print("Warning: Incomplete codon at the end.")
+
+else:
+    print("All codons contain three nucleotides.")
+
+
+    
