@@ -2,7 +2,6 @@
 
 A Python program that builds the standard genetic code (all 64 codons), accepts a DNA or RNA sequence, validates it, divides it into codons, translates each codon into its amino acid, and identifies start and stop codons.
 
-Created for **Python Assessment 2**.
 
 ## Features
 
@@ -20,14 +19,14 @@ Created for **Python Assessment 2**.
 
 | File | Purpose |
 |------|---------|
-| `code_generator.py` | Main program |
+| `code.py` | Main program |
 | `compare_codon_tables.py` | Compares our table with the NCBI standard genetic code |
 | `README.md` | Documentation |
 
 ## How to run
 
 ```bash
-python code_generator.py
+python code.py
 ```
 
 1. Enter the sequence type: `DNA` or `RNA`
